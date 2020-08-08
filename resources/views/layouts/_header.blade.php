@@ -17,8 +17,28 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                <li class="nav-item"><a class="nav-link" href="#">ログイン</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">新規登録</a></li>
+                @guest
+                <li class="nav-item"><a class="nav-link" href="/login">ログイン</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">新規登録</a></li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://cdn.learnku.com/uploads/images/201801/03/1/xJOU6N13zW.jpg" class="img-responsive img-circle" width="30px" height="30px">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="">ホーム</a>
+                            <a class="dropdown-item" href="">プロフィール編集</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" id="logout" href="#">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    {{ csrf_field() }}
+                                    <button class="btn btn-block btn-danger" type="submit" name="button">ログアウト</button>
+                                </form>
+                            </a>
+                        </div>
+                    </li>
+                @endguest
             </ul>
         </div>
     </div>
