@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class SeedCategoriesData extends Migration
 {
@@ -31,6 +32,8 @@ class SeedCategoriesData extends Migration
                 'description' => '運営のお知らせ'
             ],
         ];
+
+        DB::table('categories')->insert($categories);
     }
 
     /**
@@ -40,6 +43,6 @@ class SeedCategoriesData extends Migration
      */
     public function down()
     {
-        //
+        DB::table('categories')->truncate();
     }
 }
