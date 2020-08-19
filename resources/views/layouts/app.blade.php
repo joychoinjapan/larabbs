@@ -22,4 +22,17 @@
     <script src="{{mix('js/app.js')}}"></script>
 </body>
 
+<script type="text/javascript">
+    var path = location.pathname;
+    var category_id = path.slice(-1);
+    var category_li=document.getElementById("category-list").getElementsByTagName('li');
+    for(var i = category_li.length - 1; i >= 0; i--) {
+        i==category_id?
+            category_li[i].className='nav-item active':
+            category_li[i].className='nav-item'
+    }
+    path.slice(-1)=='s'?
+        category_li[0].className='nav-item active':
+        category_li[0].className='nav-item';
+</script>
 </html>

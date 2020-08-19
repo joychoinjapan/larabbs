@@ -7,13 +7,15 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
-
+            <ul class="navbar-nav mr-auto" id="category-list">
+                <li class="nav-item active"><a class="nav-link" href="{{route('topics.index')}}">分類</a></li>
+                <li class="nav-item" id="category-1"><a class="nav-link" href="{{route('categories.show',1)}}">シェア</a></li>
+                <li class="nav-item" id="category-2"><a class="nav-link" href="{{route('categories.show',2)}}">コース</a></li>
+                <li class="nav-item" id="category-3"><a class="nav-link" href="{{route('categories.show',3)}}">質問回答</a></li>
+                <li class="nav-item" id="category-4"><a class="nav-link" href="{{route('categories.show',4)}}">お知らせ</a></li>
             </ul>
-
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav navbar-right">
                 <!-- Authentication Links -->
