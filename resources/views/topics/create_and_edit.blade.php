@@ -15,7 +15,7 @@
                     </h2>
                     <hr>
                     @if($topic->id)
-                        <div action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
+                        <form action="{{ route('topics.update', $topic->id) }}" method="POST" accept-charset="UTF-8">
                             <input type="hidden" name="_method" value="PUT">
                     @else
                         <form action="{{ route('topics.store') }}" method="POST" accept-charset="UTF-8">
@@ -27,9 +27,9 @@
                                     </div>
                                     <div class="form-group">
                                         <select class="form-control" name="category_id" required>
-                                            <option value="" hidden disabled selected>请选择分类</option>
+                                            <option value="" hidden disabled {{$topic->id ? '':'selected'}}>请选择分类</option>
                                             @foreach ($categories as $value)
-                                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                                                <option value="{{ $value->id }}" {{$topic->category_id == $value->id?'selected':''}}>{{ $value->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -40,7 +40,7 @@
                                         <button type="submit" class="btn btn-primary"><i class="far fa-save mr-2" aria-hidden="true"></i> 保存</button>
                                     </div>
                                 </form>
-                        </div>
+                        </form>
             </div>
         </div>
     </div>
