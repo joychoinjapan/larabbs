@@ -43,8 +43,9 @@ Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 //Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 
 //帖子页面
-Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
 
+Route::get('topic/{topic}/{slug?}','TopicsController@show')->name('topics.show');
 //分类页面
 Route::resource('categories','CategoriesController',['only'=>['show']]);
 

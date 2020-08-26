@@ -36,7 +36,7 @@ class TopicObserver
             }
 
             if(array_key_exists('text',$result)){
-                $topic->slug = str_replace('-',' ',$result['text']);
+                $topic->slug = str_replace(' ','-',$result['text']);
             }
         }
     }
