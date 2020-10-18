@@ -38,6 +38,8 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 //用户个人中心页面
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 
+//Route::get('/users/{user}/{contentType}', 'UsersController@showContent')->name('users.showContent');
+
 //Route::get('/users/{user}', 'UsersController@show')->name('users.show');
 //Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
 //Route::patch('/users/{user}', 'UsersController@update')->name('users.update');

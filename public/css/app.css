@@ -28474,3 +28474,12 @@ body {
   line-height: 38px;
 }
 
+.topics-show-page .topic-reply a {
+  color: inherit;
+}
+
+.topics-show-page .topic-reply .meta {
+  font-size: 0.9em;
+  color: #b3b3b3;
+}
+

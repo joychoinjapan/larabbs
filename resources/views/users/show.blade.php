@@ -25,12 +25,27 @@
             <div class="card ">
                 <div class="card-body">
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a class="nav-link active bg-transparent" href="#">Ta 的话题</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Ta 的回复</a></li>
+                        <li class="nav-item"><a class="tab nav-link active bg-transparent topics" href="{{route('users.show',['user'=>$user->id,'contentType'=>'topics'])}}">Ta 的话题</a></li>
+                        <li class="nav-item"><a class="tab nav-link replies" href="{{route('users.show',['user'=>$user->id,'contentType'=>'replies'])}}">Ta 的回复</a></li>
                     </ul>
-                    @include('users._topics',['topics'=>$user->topics()->recent()->paginate(5)])
+                    @includeWhen($contentType == 'topics' || $contentType == null,'users._topics',['topics'=>$user->topics()->recent()->paginate(5)])
+                    @includeWhen($contentType == 'replies','users._replies', ['replies' => $user->replies()->with('topic')->recent()->paginate(5)])
                 </div>
             </div>
         </div>
     </div>
 @stop
+@section('js')
+<script type="text/javascript">
+    $(function(){
+        var path = location.href;
+        if(path.indexOf("replies") !== -1){
+            $('.topics').removeClass('active');
+            $('.replies').addClass('active');
+        }else{
+            $('.topics').addClass('active');
+            $('.replies').removeClass('active');
+        }
+    });
+</script>
+@endsection

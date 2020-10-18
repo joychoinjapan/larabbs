@@ -37,5 +37,7 @@
     path.slice(-1)=='s'?
         category_li[0].className='nav-item active':
         category_li[0].className='nav-item';
+
 </script>
+@yield('js')
 </html>

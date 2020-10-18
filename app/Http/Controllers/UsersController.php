@@ -14,10 +14,14 @@ class UsersController extends Controller
         $this->middleware('auth',['except'=>['show']]);
     }
 
-    public function show(User $user)
+    public function show(Request $request)
     {
-        return view('users.show',compact('user'));
+        $user=User::find($request->user);
+        $contentType = $request->contentType;
+        return view('users.show',compact('user','contentType'));
     }
+
+
 
     public function edit(User $user)
     {
