@@ -38,19 +38,24 @@ Route::post('email/resend', 'Auth\VerificationController@resend')->name('verific
 //用户个人中心页面
 Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 
-//Route::get('/users/{user}/{contentType}', 'UsersController@showContent')->name('users.showContent');
 
-//Route::get('/users/{user}', 'UsersController@show')->name('users.show');
-//Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
-//Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
+
+
 
 //帖子页面
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'create', 'store', 'update', 'edit', 'destroy']]);
 
 Route::get('topic/{topic}/{slug?}','TopicsController@show')->name('topics.show');
+//上传图片
+Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_image');
+
 //分类页面
 Route::resource('categories','CategoriesController',['only'=>['show']]);
 
-//上传图片
-Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_image');
+//コメント
+Route::resource('replies','RepliesController',['only'=>'store','destroy']);
+
+
+
+
 
