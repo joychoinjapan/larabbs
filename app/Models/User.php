@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Notifications\ResetPasswordNotification;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -56,5 +57,19 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAuthorOf($model)
     {
         return $this->id ===$model->user_id;
+    }
+
+    public function topicNotify($instance)
+    {
+        //Topicの作者はログイン中のユーザー、つまり自分は自分のTopicをコメントする
+        //通知しない
+        if($this->id == Auth::id()){
+            return;
+        }
+
+        $this->increment('notification_count');
+        $this->notify($instance);
+
+
     }
 }
