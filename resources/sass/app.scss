@@ -39,6 +39,21 @@ body {
     margin-top: 0px;
 }
 
+.notification-badge{
+    .badge{
+        font-size: 12px;
+        margin-top: 14px;
+    }
+
+    .badge-secondary {
+        background-color: #e8e8e8;
+    }
+
+    .badge-hint{
+        background-color: #d15b47 !important;
+    }
+}
+
 
 
 
