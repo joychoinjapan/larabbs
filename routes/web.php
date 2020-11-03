@@ -53,7 +53,7 @@ Route::post('upload_image','TopicsController@uploadImage')->name('topics.upload_
 Route::resource('categories','CategoriesController',['only'=>['show']]);
 
 //コメント
-Route::resource('replies','RepliesController',['only'=>'store','destroy']);
+Route::resource('replies','RepliesController',['only'=>['store','destroy']]);
 
 //ルートの入り口
 Route::resource('notifications','NotificationsController',['only'=>['index']]);

@@ -23,6 +23,6 @@ class ReplyPolicy
     //トピックの作者またはコメントの作者は削除できる
     public function delete(User $user,Reply $reply)
     {
-        return $user->isAuthorOf($reply)||$user->isAuthorOf($reply->topic());
+        return $user->isAuthorOf($reply)||$user->isAuthorOf($reply->topic);
     }
 }

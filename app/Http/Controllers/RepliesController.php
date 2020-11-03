@@ -29,8 +29,9 @@ class RepliesController extends Controller
 
     public function destroy(Reply $reply)
     {
-        $this->authorize('destroy',$reply);
+        $this->authorize('delete',$reply);
         $reply->delete();
-        return redirect()->route('replies.index')->with('success','コメントを削除しました');;
+
+        return redirect()->to($reply->topic->link())->with('success','コメントを削除しました');;
     }
 }

@@ -56,7 +56,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isAuthorOf($model)
     {
-        return $this->id ===$model->user_id;
+        return $this->id == $model->user_id;
     }
 
     public function topicNotify($instance)
