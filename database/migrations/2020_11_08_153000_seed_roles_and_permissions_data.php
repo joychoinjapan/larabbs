@@ -57,8 +57,5 @@ class SeedRolesAndPermissionsData extends Migration
         //一時再設定
         Model::reguard();
 
-
-
-
     }
 }
